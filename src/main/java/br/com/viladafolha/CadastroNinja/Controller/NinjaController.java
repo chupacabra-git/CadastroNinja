@@ -22,7 +22,7 @@ public class NinjaController {
 
     //Cadastrar
     @PostMapping("/cadastrar")
-    public NinjaEntity cadastrar(@RequestBody NinjaEntity ninja){
+    public NinjaEntity cadastrar(@RequestBody NinjaEntity ninja)  {
         return ninjaService.cadastrar(ninja) ;
     }
 
@@ -33,8 +33,21 @@ public class NinjaController {
     }
 
     //Pesquisar
+    @GetMapping("/pesquisar/{id}")
+    public NinjaEntity pesquisarNinja (@PathVariable Long id){
+        return ninjaService.pesquisar(id);
+    }
 
-    //Alterar
+    //Delete
+    @DeleteMapping("/deletar/{id}")
+    public void deletarNinja (@PathVariable Long id){
+        ninjaService.deletar(id);
+    }
 
-    //Excluir
+    //ALTERAR
+    @PutMapping("/alterar/{id}")
+    public NinjaEntity alterar(@PathVariable Long id, @RequestBody NinjaEntity ninja){
+        return ninjaService.alterar(id,ninja);
+    }
+
 }

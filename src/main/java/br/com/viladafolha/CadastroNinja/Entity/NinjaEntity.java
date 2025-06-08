@@ -2,6 +2,7 @@ package br.com.viladafolha.CadastroNinja.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class NinjaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_ninja")
     private Long id;
+    @NotBlank
     @Column(name="nome_ninja", nullable = false)
     private String nome;
     @CPF
