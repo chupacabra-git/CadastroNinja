@@ -3,6 +3,7 @@ package br.com.viladafolha.CadastroNinja.Entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,13 +22,18 @@ public class NinjaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_ninja")
     private Long id;
-    @NotBlank
+
+    @NotBlank(message = "Nome é obrigatório.")
+    @Size(min = 3, max = 255, message = "Nome deve ter entre 3 e 50 caracteres")
     @Column(name="nome_ninja", nullable = false)
     private String nome;
+
+    @NotBlank(message = "CPF é obrigatório.")
     @CPF
-    @Column(name="cpf_ninja", unique = true)
+    @Column(name="cpf_ninja", unique = true, nullable = false)
     private String cpf;
-    @Email
+
+    @Email(message = "Email inválido.")
     @Column(name="email_ninja")
     private String email;
 }
