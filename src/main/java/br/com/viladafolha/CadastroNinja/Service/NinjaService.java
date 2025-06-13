@@ -51,7 +51,7 @@ public class NinjaService {
     }
      */
     //DELETAR
-    public HashMap<String, Object> deleteCliente(Long id) {
+    public HashMap<String, Object> deletar(Long id) {
         Optional<NinjaEntity> ninja =
                 Optional.ofNullable(ninjaRepository.findById(id).
                         orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,

@@ -64,7 +64,7 @@ public class NinjaController {
     //Delete
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<Object> deletar(@PathVariable Long id){
-        HashMap<String, Object> resultado = ninjaService.deleteCliente(id);
+        HashMap<String, Object> resultado = ninjaService.deletar(id);
         return  ResponseEntity.ok().body(ResponseGenericException.response(resultado));
     }
     /*
